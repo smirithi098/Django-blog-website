@@ -1,0 +1,53 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container content-section">
+        <div class="container heading-section border-bottom">
+            <div class="row">
+                <div class="col-6 heading-left">
+                    <h2 class="h2">Your Posts</h2>
+                </div>
+                <div class="col-6 heading-right">
+                    <a class="btn btn-outline-info add-btn" href="{% url 'create-post' %}">
+                        <i class='fas fa-plus'></i> New Post
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% if posts|length == 0 %}
+            <p class="muted-text text-center mt-4">
+                Seems like you have not created any posts.
+                Add a new post to view here.
+            </p>
+        {% else %}
+        <ul class="list-group list-group-flush">
+            {% for post in posts %}
+            <li class="list-group-item post-lists">
+                <div class="row">
+                    <div class="col-8 left-section">
+                        <div class="flex-container">
+                            <img class="list-image" src="{{ post.image_url }}" alt="Post Img">
+                            <div class="list-title-section">
+                                <p class="h5">{{ post.title }}</p>
+                                <small class="secondary-text">{{ post.subtitle }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 right-section">
+                        <div class="flex-container btn-section">
+                            <a class="btn btn-outline-dark" href="{% url 'update-post' post.pk %}">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a class="btn btn-outline-danger" href="{% url 'delete-post' post.pk %}">
+                                <i class='fas fa-trash-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+{% endblock content %}

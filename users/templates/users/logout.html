@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2 class="h2 logout-text">You are Logged out</h2>
+    <hr>
+    <a class="btn btn-outline-primary mt-3 login-btn" type="submit" href="{% url 'login' %}">
+        Log In Again
+    </a>
+{% endblock %}

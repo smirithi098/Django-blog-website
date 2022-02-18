@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container post-section">
+        <img src="{{ post.image_url }}" class="img-fluid" alt="Blog Post Img">
+        <div class="main-section">
+            <div class="row">
+                <div class="col-9">
+                    <h1 class="h1 page-title">{{ post.title }}</h1>
+                    <p class="page-subtitle font-weight-light">{{ post.subtitle }}</p>
+                    <p class="lead page-content font-weight-normal">{{ post.content }}</p>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="col-2">
+                    <div class="author-section muted">
+                        <img class="rounded-circle profile-img align-self-center"
+                             src="{{ user.image.url }}" alt="User profile img">
+                        <h2 class="user-name font-weight-bold">{{ user.user.username|capfirst }}</h2>
+                        <p class="user-bio font-italic">{{ user.bio }}</p>
+                        <div class="icon-section">
+                            <a href="#" class="btn btn-outline-primary icon"><i class='fab fa-linkedin'></i></a>
+                            <a href="mailto: {{ user.user.email }}" class="btn btn-outline-secondary icon">
+                                <i class='fas fa-envelope'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,218 @@
+/* css for base.html */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+}
+
+.main-page-section {
+    padding: 0px;
+}
+
+.navbar-brand {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 3rem;
+}
+
+.nav-item {
+    font-size: 1.5rem;
+    margin-left: 51px;
+}
+
+.navigation {
+    background-color: #020205;
+    color: #F2F4F7;
+    padding: 0px 75px;
+}
+
+.alert-box {
+    margin-top: 125px;
+    margin-left: 500px;
+    width: max-content;
+
+}
+
+/* CSS for home.html */
+.content-section {
+    width: 900px;
+    margin-top: 175px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.image-section {
+    width: 250px;
+    height: 150px;
+}
+
+.author-name {
+    font-size: 1rem;
+    padding-right: 5px;
+    color: #007bff;
+}
+
+.date {
+    font-size: 1rem;
+    padding-left: 5px;
+}
+
+.left-section {
+    padding-right: 0px;
+}
+
+.right-section {
+    padding-left: 0px;
+    margin: auto;
+}
+
+.post-lists {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.post-title {
+    color: #020205;
+}
+
+a.post-title:hover {
+    text-decoration: none;
+    color: #606470;
+}
+
+a.post-title:visited {
+    color: #020205;
+}
+
+.post-tag {
+    font-size: 0.75rem;
+    color: #020205;
+    border-radius: 25px;
+    background: #CACACA;
+    text-align: justify;
+    padding: 5px;
+    width: max-content;
+    height: 30px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+.user-name {
+    font-size: 1.4rem;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.legend-text {
+    font-size: 3rem;
+}
+
+.logout-text {
+    margin-top: 250px;
+    text-align: center;
+}
+
+.login-btn {
+    margin-left: 650px;
+}
+
+.profile-img {
+    width: 125px;
+    height: 125px;
+}
+
+.user-info {
+    margin-left: 20px;
+}
+
+.heading-section {
+    padding-bottom: 15px;
+}
+
+.add-btn {
+    margin-left: 300px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.list-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}
+
+.list-title-section {
+    margin-left: 5px;
+}
+
+.btn-section {
+    justify-content: flex-end;
+}
+
+.flex-container > a {
+    margin: 5px;
+}
+
+.post-section {
+    width: 1200px;
+    margin-top: 175px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.author-section {
+    padding: 10px 10px;
+    margin: 10px 5px;
+    color: #393E46;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    padding: 10px 0px;
+    margin-left: 15px;
+}
+
+.user-bio {
+    font-size: 1rem;
+    margin-left: 15px;
+}
+
+.main-section {
+    padding: 10px 5px 10px 0px;
+    margin: 15px 0px;
+}
+
+.page-title {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px 0px;
+}
+
+.page-content {
+    margin: 15px 0px 5px 0px;
+}
+
+.vertical-line {
+    border: 0.25px solid #CACACA;
+    height: auto;
+    margin: 0px 5px;
+}
+
+.icon-section {
+    display: flex;
+}
+
+.icon {
+    margin: 0px 10px;
+    border-radius: 50%;
+}
+
+a, a:hover {
+    text-decoration: none;
+}

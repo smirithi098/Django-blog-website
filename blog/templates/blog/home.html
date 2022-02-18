@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container content-section">
+        <ul class="list-group list-group-flush">
+            {% for post in posts %}
+            <li class="list-group-item post-lists">
+                <div class="row">
+                    <div class="col-4 left-section">
+                        <img class="image-section" src="{{ post.image_url }}" alt="Blog Img">
+                    </div>
+                    <div class="col-8 right-section">
+                        <a href="{% url 'blog-post' post.id%}" class="post-title">
+                            <p class="h3">{{ post.title }}</p>
+                        </a>
+                        <p class="post-tag">{{ post.tag }}</p>
+                        <p class="display-4">
+                            <span class="author-name">{{ post.author }}</span><span class="date">{{ post.date_posted|date:"F d, Y"}}</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="mt-4">
+        {% if post_list.has_other_pages %}
+            {% if post_list.has_previous %}
+                <a class="btn btn-outline-dark mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-dark mb-4" href="?page={{ post_list.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            {% for num in post_list.paginator.page_range %}
+                {% if post_list.number == num %}
+                    <a class="btn btn-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > post_list.number|add:'-2' and num < post_list.number|add:'2' %}
+                    <a class="btn btn-outline-dark mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if post_list.has_next %}
+                <a class="btn btn-outline-dark mb-4" href="?page={{ post_list.next_page_number }}">Next</a>
+                <a class="btn btn-outline-dark mb-4" href="?page={{ post_list.paginator.num_pages }}">Last</a>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock content %}
