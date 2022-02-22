@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -12,16 +11,8 @@ from main import get_image_url
 
 def home(request):
     posts = Post.objects.all().order_by('-date_posted')
-    paginator = Paginator(posts, 3)
-    page = request.GET.get('page')
-    try:
-        post_list = paginator.page(page)
-    except PageNotAnInteger:
-        post_list = paginator.page(1)
-    except EmptyPage:
-        post_list = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/home.html', {'title': "Home", 'posts': posts, 'post_list': post_list})
+    return render(request, 'blog/home.html', {'title': "Home", 'posts': posts})
 
 
 @login_required(login_url='login')
