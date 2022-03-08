@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from requests import HTTPError
+
 from .models import Post
 from users.models import Profile
 from .forms import CreatePost
@@ -30,7 +32,11 @@ def add_post(request):
             new_post = form.save(commit=False)
             new_post.author = request.user
             tag = form.cleaned_data['tag']
-            new_post.image_url = get_image_url(tag)
+            try:
+                new_post.image_url = get_image_url(tag)
+            except HTTPError:
+                print("Couldn't get image from API")
+
             new_post.save()
             form.save_m2m()
             return redirect('blog-home')

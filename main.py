@@ -17,12 +17,10 @@ def get_image_url(tag):
         "per_page": 5
     }
 
-    try:
-        response = requests.get(url=url, headers=headers, params=parameters)
-    except requests.HTTPError as error:
-        print(error)
-    else:
-        data = response.json()
-        img_url = data['photos'][random.randint(1, 5)]['src']['landscape']
-        return img_url
+    response = requests.get(url=url, headers=headers, params=parameters)
+    response.raise_for_status()
+
+    data = response.json()
+    img_url = data['photos'][random.randint(1, 5)]['src']['landscape']
+    return img_url
 
