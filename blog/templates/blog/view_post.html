@@ -15,12 +15,12 @@
                 <div class="col-2">
                     <div class="author-section muted">
                         <img class="rounded-circle profile-img align-self-center"
-                             src="{{ user.image.url }}" alt="User profile img">
-                        <h2 class="user-name font-weight-bold">{{ user.user.username|capfirst }}</h2>
-                        <p class="user-bio font-italic">{{ user.bio }}</p>
+                             src="{{ profile.image.url }}" alt="User profile img">
+                        <h2 class="user-name font-weight-bold">{{ profile.user.username|capfirst }}</h2>
+                        <p class="user-bio font-italic">{{ profile.bio }}</p>
                         <div class="icon-section">
                             <a href="#" class="btn btn-outline-primary icon"><i class='fab fa-linkedin'></i></a>
-                            <a href="mailto: {{ user.user.email }}" class="btn btn-outline-secondary icon">
+                            <a href="mailto: {{ profile.user.email }}" class="btn btn-outline-secondary icon">
                                 <i class='fas fa-envelope'></i></a>
                         </div>
                     </div>

@@ -49,7 +49,7 @@ def view_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     user = User.objects.get(username=post.author)
     profile = Profile.objects.get(user=user)
-    return render(request, 'blog/view_post.html', {'title': "Post", 'post': post, 'user': profile})
+    return render(request, 'blog/view_post.html', {'title': "Post", 'post': post, 'profile': profile})
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):

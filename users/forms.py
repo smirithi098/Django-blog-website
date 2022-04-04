@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile
+from .models import Profile, CustomSession
 
 
 class UserRegisterForm(UserCreationForm):
@@ -10,6 +10,17 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class UserLoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(max_length=20, widget=forms.PasswordInput)
+
+
+class OtpVerificationForm(forms.ModelForm):
+    class Meta:
+        model = CustomSession
+        fields = ['otp_field']
 
 
 class UserUpdateForm(forms.ModelForm):
